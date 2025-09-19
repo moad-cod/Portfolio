@@ -163,7 +163,7 @@
     box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4);
 }
 
-@utility mteor {
+@utility meteor {
     @apply absolute bg-linear-to-r from-white to-transparent rounded-full;
     box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4);
 }
