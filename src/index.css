@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+
+/* Tailwind Theme */
 @theme {
     /* Colors */
     --color-border: hsl(var(--border));
@@ -63,5 +65,35 @@
             transform: rotate(215deg) translateX(-500px);
             opacity: 0;
         }
+    }
+}
+
+
+/* Tailwind Base */
+@layer base {
+    :root {
+        --background: 210 40% 98%;
+        --foreground: 222 47% 11%;
+
+        --card: 0 0% 100%;
+        
+        --primary: 250 47% 60%;
+        --primary-foreground: 210 40% 98%;
+
+        --border: 214 32% 91%;
+
+    }
+
+    .dark {
+        --background: 222 47% 4%;
+
+        --foreground: 213 31% 91%;
+
+        --card: 222 47% 8%;
+        
+        --primary: 250 56% 65%;
+        --primary-foreground: 213 31% 91%;
+
+        --border: 217 33% 20%;
     }
 }
