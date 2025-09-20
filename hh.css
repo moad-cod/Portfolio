@@ -85,11 +85,15 @@
     }
 
     .dark {
-        --background: 235 60% 12%;
+        --background: 222 47% 4%;
+
         --foreground: 213 31% 91%;
+
         --card: 222 47% 8%;
+        
         --primary: 250 56% 65%;
         --primary-foreground: 213 31% 91%;
+
         --border: 217 33% 20%;
     }
 
@@ -102,11 +106,27 @@
     }
 
     body {
-        @apply bg-background text-foreground transition-colors duration-300;
+        @apply transition-colors duration-300;
         font-feature-settings: "rlig", 1, "calt", 1;
+
+        /* Light mode (default) */
+        background: hsl(var(--background));
     }
-    
+
+    /* Dark mode */
+    .dark body {
+        background: linear-gradient(180deg, #0D0F2B 0%, #1A1B3D 100%);
+    }
 }
+
+.star, .meteor {
+  display: none; /* hide by default (light mode) */
+}
+
+.dark .star, .dark .meteor {
+  display: block; /* show in dark mode */
+}
+
 
 @utility container {
     margin-inline: auto;
@@ -137,9 +157,8 @@
     @apply relative;
     text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
 }
-
 @utility heading-glow {
-    color: #FFEEAA; 
+    color: #FFEEAA; /* warm yellow */
     text-shadow: 0 0 8px rgba(255, 238, 170, 0.6);
 }
 
@@ -157,6 +176,7 @@
 }
 
 
+
 @utility card-hover {
     @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg; 
 }
@@ -169,6 +189,8 @@
 }
 
 @utility cosmic-button {
+    /* @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)] hover:scale-105 active:scale-95;
+     */
     @apply px-6 py-2 rounded-full font-medium transition-all duration-300;
     background: linear-gradient(90deg, #FF6B6B, #FFB86C);
     color: #1A1B3D;
@@ -178,8 +200,13 @@
     }
 }
 
+@utility cosmic-bg {
+    background: linear-gradient(180deg, #0D0F2B 0%, #1A1B3D 100%);
+}
 
 @utility star {
+    /* @apply absolute rounded-full bg-white;
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4); */
     @apply absolute rounded-full;
     background: random(#FFFFFF, #FFEEDB, #A0C8FF, #FFB3E6);
     box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4);
@@ -187,6 +214,8 @@
 }
 
 @utility meteor {
+    /* @apply absolute bg-linear-to-r from-white to-transparent rounded-full;
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4); */
     @apply absolute rounded-full;
     background: linear-gradient(90deg, #FFD700, #FF8C00, #FF4500);
     filter: blur(2px);

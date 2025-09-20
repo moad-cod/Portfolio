@@ -22,7 +22,7 @@ export const ContactSection = () => {
     <section id='contacts' className='py-24 relative bg-secondary/30'>
         <div className='container mx-auto max-w-5xl'>
             <h2 className='text-3xl md:text-4xl font-bold mb-4 text-center'>
-                Get In <span className='text-primary'> Touch</span>
+                Get In <span className='heading-lavender'> Touch</span>
             </h2>
 
             <p className='text-center text-mted-foreground mb-12 max-w-2xl mx-auto'>
@@ -35,13 +35,13 @@ export const ContactSection = () => {
                     <div className='space-y-6 justify-center'>
                         <div className='flex items-start space-x-4'>
                             <div className='p-3 rounded-full bg-primary/10'>
-                                <Mail className='h-6 w-6 text-primary'/>
+                                <Mail className='h-6 w-6 heading-lavender'/>
                             </div>
                             <div >
                                 <h4 className='font-medium'> Email</h4>
                                 <a 
                                     href="mailto:elbaz.ouad1249@gmail.com" 
-                                    className='text-muted-foreground hover:text-primary transition-colors'
+                                    className='text-muted-foreground hover:heading-lavender transition-colors'
                                 >
                                     elbaz.ouad1249@gmail.com
                                 </a>
@@ -51,13 +51,13 @@ export const ContactSection = () => {
                     <div className='space-y-6 justify-center'>
                         <div className='flex items-start space-x-4'>
                             <div className='p-3 rounded-full bg-primary/10'>
-                                <Phone className='h-6 w-6 text-primary'/>
+                                <Phone className='h-6 w-6 heading-lavender'/>
                             </div>
                             <div >
                                 <h4 className='font-medium'> Phone</h4>
                                 <a 
                                     href="tel:+2120641747116" 
-                                    className='text-muted-foreground hover:text-primary transition-colors'
+                                    className='text-muted-foreground hover:heading-lavender transition-colors'
                                 >
                                     (+212) 0641-747116
                                 </a>
@@ -67,13 +67,13 @@ export const ContactSection = () => {
                     <div className='space-y-6 justify-center'>
                         <div className='flex items-start space-x-4'>
                             <div className='p-3 rounded-full bg-primary/10'>
-                                <MapPin className='h-6 w-6 text-primary'/>
+                                <MapPin className='h-6 w-6 heading-lavender'/>
                             </div>
                             <div >
                                 <h4 className='font-medium'> Location</h4>
                                 <a 
                                     href="tel:+2120641747116" 
-                                    className='text-muted-foreground hover:text-primary transition-colors'
+                                    className='text-muted-foreground hover:heading-lavender transition-colors'
                                 >
                                     Agadir, Morocco
                                 </a>

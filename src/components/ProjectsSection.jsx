@@ -35,7 +35,7 @@ export const ProjectsSection = () => {
   return (
     <section id="projects" className="py-24 px-4 relative">
         <div className="container mx-auto max-w-5xl">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">Featured <span className="text-primary"> Projects</span></h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">Featured <span className="heading-lavender"> Projects</span></h2>
 
             <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto ">
                 These are some of the projects I have worked on.
@@ -78,7 +78,7 @@ export const ProjectsSection = () => {
                                         <a 
                                             href={projects.githubUrl}
                                             target="_blank"
-                                            className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                                            className="text-foreground/80 hover:heading-lavender transition-colors duration-300"
                                         >
                                             <Github size={20}/>
                                         </a>
