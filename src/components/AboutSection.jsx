@@ -10,19 +10,22 @@ export const AboutSection = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h3 className="text-2xl md:text-3xl font-bold">Passinate Web Developer and DBMS</h3>
+            <h3 className="text-2xl md:text-3xl font-bold">Passionate Web & Full Stack Developer</h3>
             <p className="text-muted-foreground">
-              I am a web developer with a passion for creating engaging and user-friendly websites.
+              I am a dedicated web developer with a passion for building engaging, responsive, and user-friendly web applications. 
             </p>
             <p className="text-muted-foreground">
-              I have a strong foundation in HTML, CSS, and JavaScript, and I am
+              I have a solid foundation in HTML, CSS, JavaScript, and modern frameworks, and I enjoy turning ideas into interactive, high-quality digital experience
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
-              <a href="#contact" className="cosmic-button">
+              <a href="#contacts" className="cosmic-button">
                 Get In Touch
               </a>
-              <a href="#contact" className="px-6 py-2 rounded-full border-primary heading-lavender hover:bg-primary/10 transition-colors duration-300">
+              <a 
+                href="/Mouad_CV.pdf"
+                download="Mouad_CV.pdf"
+                className="px-6 py-2 rounded-full border-primary heading-lavender hover:bg-primary/10 transition-colors duration-300">
                 Download CV
               </a>
             </div>
@@ -38,7 +41,7 @@ export const AboutSection = () => {
                   <div className="text-left">
                     <h4 className="text-semibold text-lg">Software Development</h4>
                     <p className="text-muted-foreground">
-                      I have a strong foundation in moderne frameworks.
+                      I specialize in developing robust web applications using modern frameworks and technologies, ensuring seamless user experiences and maintainable code.
                     </p>
                   </div>
                 </div>
@@ -53,7 +56,7 @@ export const AboutSection = () => {
                   <div className="text-left">
                     <h4 className="text-semibold text-lg">Full Stack Developer</h4>
                     <p className="text-muted-foreground">
-                      Developing and maintaining web applications using modern technologies.
+                      I design, develop, and maintain end-to-end web applications, working with both frontend and backend technologies to deliver complete solutions.
                     </p>
                   </div>
                 </div>
@@ -68,7 +71,7 @@ export const AboutSection = () => {
                   <div className="text-left">
                     <h4 className="text-semibold text-lg">Project Management</h4>
                     <p className="text-muted-foreground">
-                      Leading projects and collaborating with cross-functional teams.
+                      I lead projects efficiently, collaborating with cross-functional teams to achieve project goals on time and maintain high-quality standards.
                     </p>
                   </div>
                 </div>

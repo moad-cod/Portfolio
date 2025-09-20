@@ -4,27 +4,27 @@ import { ArrowRight, ExternalLink, Github, Tags } from "lucide-react"
 const projects = [
     {
         id: 1,
-        title: "Project 1",
-        description: "Description of Project 1",
+        title: "EMS",
+        description: "Employee Management System (EMS) is a full-featured application designed to streamline HR processes, including employee data management",
         image: "/public/projects/project1.png",
-        Tags: ["Tag 1", "Tag 2", "Tag 3"],
+        Tags: ["Spring", "Angular", "MySQL"],
         githubUrl: "#",
     },
     {
-        id: 1,
-        title: "Project 2",
-        description: "Description of Project 2",
+        id: 2,
+        title: "BI-Foundation",
+        description: "BI-Foundation is a comprehensive Business Intelligence platform that enables data-driven decision-making by integrating analytics, reporting, and visualization tools",
         image: "/public/projects/project2.png",
-        Tags: ["Tag 1", "Tag 2", "Tag 3"],
-        githubUrl: "#",
+        Tags: ["NextJs", "React", "TailwindCss"],
+        githubUrl: "https://github.com/moad-cod/BI-Foundation",
     },
     {
-        id: 1,
-        title: "Project 3",
-        description: "Description of Project 3",
+        id: 3,
+        title: "Anime Website",
+        description: "Anime Website is a dynamic platform for anime enthusiasts to explore, discover, and track their favorite shows. Built with Vite and React for high performance,",
         image: "/public/projects/project3.png",
-        Tags: ["Tag 1", "Tag 2", "Tag 3"],
-        githubUrl: "#",
+        Tags: ["Vite", "React", "TailwindCss"],
+        githubUrl: "https://github.com/moad-cod/Anime-Website",
     },
     
 ]
@@ -38,9 +38,7 @@ export const ProjectsSection = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">Featured <span className="heading-lavender"> Projects</span></h2>
 
             <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto ">
-                These are some of the projects I have worked on.
-                These are some of the projects I have worked on.
-                These are some of the projects I have worked on.
+                Here are a few projects I have worked on, showcasing my skills and experience.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

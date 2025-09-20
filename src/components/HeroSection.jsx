@@ -14,8 +14,7 @@ export const HeroSection = () => {
                     <span className='text-gradient opacity-0 animate-fade-in-delay-2'> Elbaz</span>
                 </h1>
                 <p className='text-lg md:text-xl text-muted-foreground opacity-0 mx-auto max-2-2xl animate-fade-in-delay-3'>
-                    Welcome to my portfolio, a space where ideas come to life through creativity and persistence. Each project reflects my journey of exploration and problem-solving. 
-                    This collection showcases not just work, but the passion and vision behind it.
+                    This is a space where creativity meets problem-solving. Each project reflects my dedication, skills, and the journey I’ve taken to bring ideas to life. Here, you’ll see not just my work, but the passion and vision behind every creation.
                 </p>
                 <div className='pt-4 opacity-0 animate-fade-in-delay-4'>
                     <a href="#projects" className='cosmic-button'>
@@ -26,7 +25,7 @@ export const HeroSection = () => {
         </div>
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
           <span className="text-sm text-muted-foreground mb-2"> Scroll </span>
-          <ArrowDown className="h-5 w-5 heading-lavender" />
+          <a href="#about"><ArrowDown className="h-5 w-5 heading-lavender" /></a>
         </div>
     </section>
   )
