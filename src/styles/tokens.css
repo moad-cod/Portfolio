@@ -1,0 +1,22 @@
+:root {
+  --background: #0b0905;
+  --foreground: #eadfcd;
+  --surface: #1d1614;
+  --muted: #b59c80;
+  --accent: #c67424;
+  --amber: #c67424;
+  --orange: #e18b29;
+  --cream: #eadfcd;
+  --green: #333e32;
+  --olive: #606353;
+  --border: #2e2e2f;
+}
+
+:root[data-theme="dimmed"] {
+  --background: #11100c;
+  --surface: #211a17;
+  --muted: #c1aa8f;
+  --amber: #e18b29;
+  --accent: #e18b29;
+  --green: #3f4a3d;
+}
