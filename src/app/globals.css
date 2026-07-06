@@ -126,11 +126,15 @@ html {
   }
 
   .project-screenshot-main {
-    @apply relative aspect-[1917/990] overflow-hidden rounded-xl border border-border bg-background/70 shadow-[0_20px_70px_rgba(0,0,0,0.32)];
+    @apply relative aspect-[1917/990] cursor-zoom-in overflow-hidden rounded-xl border border-border bg-background/70 shadow-[0_20px_70px_rgba(0,0,0,0.32)] transition duration-300 hover:border-amber/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber;
   }
 
   .project-screenshot-thumb {
-    @apply relative aspect-[1917/990] overflow-hidden rounded-lg border border-border bg-background/70 opacity-80 transition duration-300 group-hover:opacity-100;
+    @apply relative aspect-[1917/990] cursor-zoom-in overflow-hidden rounded-lg border border-border bg-background/70 opacity-80 transition duration-300 hover:-translate-y-1 hover:border-amber/55 hover:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber group-hover:opacity-100;
+  }
+
+  .lightbox-nav {
+    @apply absolute top-1/2 z-10 inline-flex size-12 -translate-y-1/2 items-center justify-center rounded-full border border-amber/35 bg-surface/85 text-amber shadow-amber backdrop-blur transition duration-300 hover:border-orange hover:bg-amber/15 hover:text-orange focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber;
   }
 
   .field {

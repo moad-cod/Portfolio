@@ -2,10 +2,11 @@
 
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 import { Badge } from "@/components/ui/badge";
 import { ExternalIcon, GithubIcon } from "@/components/ui/icons";
+import { ImageLightbox } from "@/components/ui/image-lightbox";
 import type { projects } from "@/lib/portfolio-data";
 
 type Project = (typeof projects)[number];
@@ -19,6 +20,7 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 function ProjectVisual({ project }: { project: Project }) {
   const ref = useRef<HTMLDivElement>(null);
+  const [activeImageIndex, setActiveImageIndex] = useState<number | null>(null);
   const shouldReduceMotion = useReducedMotion();
   const screenshots = project.images;
   const { scrollYProgress } = useScroll({
@@ -40,7 +42,12 @@ function ProjectVisual({ project }: { project: Project }) {
           </span>
         </div>
 
-        <div className="project-screenshot-main relative mt-6">
+        <button
+          aria-label={`Open ${project.title} image gallery at image 1`}
+          className="project-screenshot-main relative mt-6 block w-full text-left"
+          onClick={() => setActiveImageIndex(0)}
+          type="button"
+        >
           <Image
             alt={`${project.title} dashboard screenshot`}
             className="object-cover transition duration-700 group-hover:scale-[1.025]"
@@ -48,11 +55,20 @@ function ProjectVisual({ project }: { project: Project }) {
             sizes="(min-width: 1024px) 50vw, 100vw"
             src={mainImage}
           />
-        </div>
+          <span className="absolute bottom-3 right-3 rounded-full border border-amber/40 bg-background/85 px-3 py-1 text-xs font-semibold text-amber backdrop-blur">
+            View gallery
+          </span>
+        </button>
 
         <div className="mt-4 grid grid-cols-4 gap-3">
           {visibleThumbnails.map((image, index) => (
-            <div className="project-screenshot-thumb relative" key={image}>
+            <button
+              aria-label={`Open ${project.title} image gallery at image ${index + 2}`}
+              className="project-screenshot-thumb relative"
+              key={image}
+              onClick={() => setActiveImageIndex(index + 1)}
+              type="button"
+            >
               <Image
                 alt={`${project.title} screenshot ${index + 2}`}
                 className="object-cover transition duration-500 group-hover:scale-105"
@@ -60,7 +76,7 @@ function ProjectVisual({ project }: { project: Project }) {
                 sizes="(min-width: 1024px) 10vw, 22vw"
                 src={image}
               />
-            </div>
+            </button>
           ))}
         </div>
 
@@ -70,6 +86,14 @@ function ProjectVisual({ project }: { project: Project }) {
           </p>
           <span className="text-7xl font-black text-amber/35">{project.number}</span>
         </div>
+
+        <ImageLightbox
+          activeIndex={activeImageIndex}
+          caption={`${project.title} screenshots`}
+          images={screenshots}
+          onClose={() => setActiveImageIndex(null)}
+          onIndexChange={setActiveImageIndex}
+        />
       </motion.div>
     );
   }
