@@ -32,13 +32,14 @@ function ProjectVisual({ project }: { project: Project }) {
   if (screenshots.length > 0) {
     const [mainImage, ...thumbnailImages] = screenshots;
     const visibleThumbnails = thumbnailImages.slice(0, 4);
+    const hasGallery = screenshots.length > 1;
 
     return (
       <motion.div className="project-visual group" ref={ref} style={{ y }}>
         <div className="flex items-center justify-between border-b border-border pb-4">
           <span className="text-sm text-muted">real.screenshots</span>
           <span className="rounded-full border border-amber/30 bg-amber/10 px-3 py-1 text-xs text-amber shadow-amber">
-            {screenshots.length} views
+            {screenshots.length} {screenshots.length === 1 ? "view" : "views"}
           </span>
         </div>
 
@@ -49,47 +50,49 @@ function ProjectVisual({ project }: { project: Project }) {
           type="button"
         >
           <Image
-            alt={`${project.title} dashboard screenshot`}
+            alt={`${project.title} project screenshot`}
             className="object-cover transition duration-700 group-hover:scale-[1.025]"
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"
             src={mainImage}
           />
           <span className="absolute bottom-3 right-3 rounded-full border border-amber/40 bg-background/85 px-3 py-1 text-xs font-semibold text-amber backdrop-blur">
-            View gallery
+            {hasGallery ? "View gallery" : "View image"}
           </span>
         </button>
 
-        <div className="mt-4 grid grid-cols-4 gap-3">
-          {visibleThumbnails.map((image, index) => (
-            <button
-              aria-label={`Open ${project.title} image gallery at image ${index + 2}`}
-              className="project-screenshot-thumb relative"
-              key={image}
-              onClick={() => setActiveImageIndex(index + 1)}
-              type="button"
-            >
-              <Image
-                alt={`${project.title} screenshot ${index + 2}`}
-                className="object-cover transition duration-500 group-hover:scale-105"
-                fill
-                sizes="(min-width: 1024px) 10vw, 22vw"
-                src={image}
-              />
-            </button>
-          ))}
-        </div>
+        {visibleThumbnails.length > 0 ? (
+          <div className="mt-4 grid grid-cols-4 gap-3">
+            {visibleThumbnails.map((image, index) => (
+              <button
+                aria-label={`Open ${project.title} image gallery at image ${index + 2}`}
+                className="project-screenshot-thumb relative"
+                key={image}
+                onClick={() => setActiveImageIndex(index + 1)}
+                type="button"
+              >
+                <Image
+                  alt={`${project.title} screenshot ${index + 2}`}
+                  className="object-cover transition duration-500 group-hover:scale-105"
+                  fill
+                  sizes="(min-width: 1024px) 10vw, 22vw"
+                  src={image}
+                />
+              </button>
+            ))}
+          </div>
+        ) : null}
 
         <div className="mt-6 flex items-end justify-between">
           <p className="max-w-56 text-sm text-muted">
-            Dashboard, analytics, ELT, RAG, and operational intelligence views.
+            {project.imageCaption}
           </p>
           <span className="text-7xl font-black text-amber/35">{project.number}</span>
         </div>
 
         <ImageLightbox
           activeIndex={activeImageIndex}
-          caption={`${project.title} screenshots`}
+          caption={project.imageCaption ?? `${project.title} screenshots`}
           images={screenshots}
           onClose={() => setActiveImageIndex(null)}
           onIndexChange={setActiveImageIndex}

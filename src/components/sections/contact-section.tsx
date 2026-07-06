@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/animations/reveal";
+import { ContactForm } from "@/components/sections/contact-form";
 import { profile } from "@/lib/portfolio-data";
 
 export function ContactSection() {
@@ -38,23 +39,7 @@ export function ContactSection() {
 
           <Reveal className="glass-card" delay={0.1}>
             <h3 className="text-3xl font-bold text-cream">Contact Me</h3>
-            <form className="mt-7 grid gap-4">
-              <label className="sr-only" htmlFor="name">
-                Your name
-              </label>
-              <input className="field" id="name" name="name" placeholder="Your name" type="text" />
-              <label className="sr-only" htmlFor="email">
-                Your email
-              </label>
-              <input className="field" id="email" name="email" placeholder="Your email" type="email" />
-              <label className="sr-only" htmlFor="message">
-                Your message
-              </label>
-              <textarea className="field min-h-36 resize-y" id="message" name="message" placeholder="Your message" />
-              <button className="button-primary justify-center" type="submit">
-                Send
-              </button>
-            </form>
+            <ContactForm />
           </Reveal>
         </div>
       </div>

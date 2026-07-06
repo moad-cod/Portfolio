@@ -1,13 +1,14 @@
 export const profile = {
   name: "Mouad Elbaz",
-  role: "Data Engineering & Machine Learning Student",
+  role: "Data Engineering & Machine Learning Developer",
   rotatingRoles: [
     "AI / Data Engineering Developer",
+    "Machine Learning Engineer",
     "Full-Stack AI Developer",
     "RAG Systems Builder",
   ],
   summary:
-    "I build intelligent data platforms, RAG systems, machine learning solutions, and full-stack dashboards that transform complex data into practical business value.",
+    "I build intelligent data platforms, RAG systems, machine learning solutions, and full-stack dashboards that turn complex data into practical business value.",
   location: "Agadir, Morocco",
   phone: "+212 751 81 12 01",
   email: "elbaz.ouad1249@gmail.com",
@@ -65,6 +66,8 @@ export const projects = [
     type: "Data Engineering, Machine Learning, RAG, Enterprise Dashboard",
     status: null,
     github: "https://github.com/moad-cod/operational-intelligence-platform",
+    imageCaption:
+      "Dashboard, analytics, ELT, RAG, and operational intelligence views.",
     images: [
       "/Operational Intelligence Platform/1.png",
       "/Operational Intelligence Platform/2.png",
@@ -108,6 +111,7 @@ export const projects = [
     type: "AI Knowledge & RAG Platform",
     status: "Under Development",
     github: "https://github.com/moad-cod/RAGForge",
+    imageCaption: null,
     images: [],
     description:
       "RAGForge is an under-development AI Knowledge & RAG platform for automated document ingestion, hybrid search, semantic retrieval, metadata reranking, and LLM-powered contextual Q&A.",
@@ -127,7 +131,8 @@ export const projects = [
     type: "Plant Disease Detection System",
     status: null,
     github: "https://github.com/moad-cod/Plant-Disease-Classification-using-CNN",
-    images: [],
+    imageCaption: "Plant disease detection interface and model preview.",
+    images: ["/PlantGuard AI/1.png"],
     description:
       "An AI-powered plant disease detection system trained on the PlantVillage dataset. The project compares CNN, ResNet, and EfficientNet-B3 architectures across 38 disease categories and includes anomaly detection for out-of-distribution cases.",
     highlights: [
