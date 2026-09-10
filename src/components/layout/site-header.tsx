@@ -9,31 +9,30 @@ import {
   GithubIcon,
   LinkedinIcon,
   MenuIcon,
-  SunMoonIcon,
 } from "@/components/ui/icons";
+import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { Logo } from "@/components/ui/logo";
 
 const navItems = [
+  { label: "Home", href: "#home" },
   { label: "Technologies", href: "#technologies" },
   { label: "Projects", href: "#projects" },
+  { label: "Research", href: "#research" },
+  { label: "Experience", href: "#experience" },
   { label: "Education", href: "#education" },
   { label: "Contact", href: "#contact" },
 ];
 
 export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isDimmed, setIsDimmed] = useState(false);
-
-  function toggleTheme() {
-    setIsDimmed((current) => {
-      const next = !current;
-      document.documentElement.dataset.theme = next ? "dimmed" : "cinematic";
-      return next;
-    });
-  }
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-border/70 bg-background/80 backdrop-blur-xl">
+    <header onKeyDown={(event) => {
+      if (event.key === "Escape" && isOpen) {
+        setIsOpen(false);
+        event.currentTarget.querySelector<HTMLButtonElement>('[aria-controls="mobile-navigation"]')?.focus();
+      }
+    }} className="fixed inset-x-0 top-0 z-50 border-b border-border/70 bg-background/80 backdrop-blur-xl">
       <nav
         aria-label="Primary navigation"
         className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6"
@@ -46,7 +45,7 @@ export function SiteHeader() {
           <Logo showWordmark />
         </a>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-5 xl:flex">
           {navItems.map((item) => (
             <a className="nav-link" href={item.href} key={item.href}>
               {item.label}
@@ -54,16 +53,8 @@ export function SiteHeader() {
           ))}
         </div>
 
-        <div className="hidden items-center gap-3 md:flex">
-          <button
-            aria-label="Toggle visual theme"
-            aria-pressed={isDimmed}
-            className="icon-button"
-            onClick={toggleTheme}
-            type="button"
-          >
-            <SunMoonIcon className="size-4" />
-          </button>
+        <div className="hidden items-center gap-3 xl:flex">
+          <ThemeToggle />
           <a
             aria-label="LinkedIn profile"
             className="icon-button"
@@ -84,20 +75,26 @@ export function SiteHeader() {
           </a>
         </div>
 
+        <div className="flex items-center gap-3 xl:hidden">
+          <ThemeToggle />
         <button
+          aria-controls="mobile-navigation"
           aria-expanded={isOpen}
           aria-label="Toggle navigation menu"
-          className="icon-button md:hidden"
+          className="icon-button xl:hidden"
           onClick={() => setIsOpen((current) => !current)}
           type="button"
         >
           {isOpen ? <CloseIcon className="size-5" /> : <MenuIcon className="size-5" />}
         </button>
+        </div>
       </nav>
 
       <div
+        id="mobile-navigation"
+        inert={!isOpen}
         className={cn(
-          "grid border-t border-border bg-background/95 px-6 transition-all md:hidden",
+          "grid max-h-[calc(100dvh-5rem)] overflow-y-auto border-t border-border bg-background/95 px-6 transition-all xl:hidden",
           isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
         )}
       >
@@ -114,10 +111,10 @@ export function SiteHeader() {
               </a>
             ))}
             <div className="flex gap-3 pt-2">
-              <a className="icon-button" href={socialLinks[0].href} rel="noreferrer" target="_blank">
+              <a aria-label="LinkedIn profile" className="icon-button" href={socialLinks[0].href} rel="noreferrer" target="_blank">
                 <LinkedinIcon className="size-4" />
               </a>
-              <a className="icon-button" href={socialLinks[1].href} rel="noreferrer" target="_blank">
+              <a aria-label="GitHub profile" className="icon-button" href={socialLinks[1].href} rel="noreferrer" target="_blank">
                 <GithubIcon className="size-4" />
               </a>
             </div>
