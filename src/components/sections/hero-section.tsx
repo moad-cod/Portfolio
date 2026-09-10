@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 import { Reveal } from "@/components/animations/reveal";
-import { RoleRotator } from "@/components/animations/role-rotator";
 import { profile } from "@/lib/portfolio-data";
 
 export function HeroSection() {
@@ -16,7 +15,7 @@ export function HeroSection() {
         <div className="text-center lg:text-left">
           <Reveal delay={0.02}>
             <p className="mx-auto mb-5 max-w-fit text-xs font-semibold uppercase tracking-[0.18em] text-amber sm:text-sm lg:mx-0">
-              DATA PLATFORMS · AI SYSTEMS · PRODUCT DASHBOARDS
+              DATA PIPELINES · AI SYSTEMS · RESEARCH
             </p>
           </Reveal>
           <Reveal delay={0.12}>
@@ -31,7 +30,7 @@ export function HeroSection() {
           </Reveal>
           <Reveal delay={0.3}>
             <p className="mt-4 min-h-8 text-lg font-semibold md:text-xl">
-              <RoleRotator roles={profile.rotatingRoles} />
+              {profile.supportingLine}
             </p>
           </Reveal>
           <Reveal delay={0.4}>
@@ -41,11 +40,11 @@ export function HeroSection() {
           </Reveal>
           <Reveal delay={0.5}>
             <div className="mt-10 flex flex-wrap justify-center gap-4 lg:justify-start">
-              <a className="button-primary" href={profile.resumeHref}>
-                View Resume
-              </a>
-              <a className="button-secondary" href="#projects">
+              <a className="button-primary" href="#projects">
                 View Projects
+              </a>
+              <a className="button-secondary" href={profile.resumeHref} download="Mouad-Elbaz-CV.pdf">
+                Download CV
               </a>
             </div>
           </Reveal>
