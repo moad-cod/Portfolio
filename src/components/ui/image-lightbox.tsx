@@ -2,7 +2,8 @@
 
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
-import { useCallback, useEffect } from "react";
+import { createPortal } from "react-dom";
+import { useCallback, useEffect, useRef } from "react";
 
 import {
   ChevronLeftIcon,
@@ -27,6 +28,7 @@ export function ImageLightbox({
   onClose,
   onIndexChange,
 }: ImageLightboxProps) {
+  const dialogRef = useRef<HTMLDivElement>(null);
   const shouldReduceMotion = useReducedMotion();
   const isOpen = activeIndex !== null;
   const selectedIndex = activeIndex ?? 0;
@@ -40,6 +42,26 @@ export function ImageLightbox({
   const showNext = useCallback(() => {
     onIndexChange((selectedIndex + 1) % images.length);
   }, [images.length, onIndexChange, selectedIndex]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const dialog = dialogRef.current;
+    dialog?.querySelector<HTMLButtonElement>("button")?.focus();
+    function trapFocus(event: KeyboardEvent) {
+      if (event.key !== "Tab" || !dialog) return;
+      const buttons = Array.from(dialog.querySelectorAll<HTMLButtonElement>("button"));
+      const first = buttons[0];
+      const last = buttons[buttons.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+    }
+    document.addEventListener("keydown", trapFocus);
+    return () => {
+      document.removeEventListener("keydown", trapFocus);
+      previousFocus?.focus();
+    };
+  }, [isOpen]);
 
   useEffect(() => {
     if (!isOpen) {
@@ -71,12 +93,19 @@ export function ImageLightbox({
     };
   }, [hasMultipleImages, isOpen, onClose, showNext, showPrevious]);
 
-  return (
+  if (!isOpen) return null;
+
+  return createPortal(
     <AnimatePresence>
       {isOpen && selectedImage ? (
         <motion.div
+          ref={dialogRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label={caption ?? "Project image gallery"}
+          data-lenis-prevent
           animate={{ opacity: 1 }}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-[#030201]/90 p-4 backdrop-blur-xl"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-background/95 p-4 backdrop-blur-xl"
           exit={{ opacity: 0 }}
           initial={{ opacity: 0 }}
           onClick={onClose}
@@ -161,6 +190,7 @@ export function ImageLightbox({
           ) : null}
         </motion.div>
       ) : null}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body,
   );
 }
