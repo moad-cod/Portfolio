@@ -5,12 +5,15 @@ import { HeroSection } from "@/components/sections/hero-section";
 import { ProjectsSection } from "@/components/sections/projects-section";
 import { TechnologiesSection } from "@/components/sections/technologies-section";
 
+import { ResearchSection } from "@/components/sections/research-section";
+
 export default function Home() {
   return (
     <main>
       <HeroSection />
       <TechnologiesSection />
       <ProjectsSection />
+      <ResearchSection />
       <ExperienceSection />
       <EducationSection />
       <ContactSection />
