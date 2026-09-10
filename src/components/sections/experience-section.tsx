@@ -8,7 +8,7 @@ export function ExperienceSection() {
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="max-w-3xl">
           <p className="section-eyebrow">Experience</p>
-          <h2 className="section-title">Applied work in public-sector systems.</h2>
+          <h2 className="section-title">Professional Experience</h2>
         </Reveal>
         <div className="mt-12 grid gap-5 lg:grid-cols-2">
           {experiences.map((experience, index) => (
