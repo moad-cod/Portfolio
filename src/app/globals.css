@@ -42,7 +42,7 @@ html {
   }
 
   .logo-mark {
-    @apply relative grid size-12 place-items-center rounded-2xl border border-amber/35 bg-[radial-gradient(circle_at_70%_20%,rgba(225,139,41,0.22),transparent_36%),linear-gradient(145deg,rgba(29,22,20,0.98),rgba(51,62,50,0.4))] p-2.5 text-cream shadow-amber transition duration-300;
+    @apply relative grid size-12 place-items-center rounded-2xl border border-amber/35 bg-[image:var(--visual-background)] p-2.5 text-cream shadow-amber transition duration-300;
   }
 
   .group:hover .logo-mark {
@@ -51,7 +51,7 @@ html {
   }
 
   .button-primary {
-    @apply inline-flex h-12 items-center rounded-md bg-amber px-6 text-sm font-semibold text-background transition duration-300 hover:bg-orange focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange;
+    @apply inline-flex h-12 items-center rounded-md bg-[var(--primary)] px-6 text-sm font-semibold text-[var(--primary-foreground)] transition duration-300 hover:bg-orange focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange;
   }
 
   .button-secondary {
@@ -122,7 +122,7 @@ html {
   }
 
   .project-visual {
-    @apply min-h-80 rounded-2xl border border-border bg-[radial-gradient(circle_at_70%_20%,rgba(225,139,41,0.2),transparent_34%),linear-gradient(135deg,rgba(29,22,20,0.98),rgba(51,62,50,0.58))] p-6 shadow-[0_30px_100px_rgba(198,116,36,0.12)] transition duration-500 hover:-translate-y-1 hover:border-amber/60 hover:shadow-amber;
+    @apply min-h-80 rounded-2xl border border-border bg-[image:var(--visual-background)] p-6 shadow-[0_30px_100px_rgba(198,116,36,0.12)] transition duration-500 hover:-translate-y-1 hover:border-amber/60 hover:shadow-amber;
   }
 
   .project-screenshot-main {
@@ -138,7 +138,7 @@ html {
   }
 
   .field {
-    @apply w-full rounded-lg border border-border bg-background/75 px-4 py-3 text-cream outline-none transition placeholder:text-muted/70 focus:border-amber focus:ring-2 focus:ring-amber/20;
+    @apply w-full rounded-lg border border-border bg-background/75 px-4 py-3 text-cream outline-none transition placeholder:text-muted focus:border-amber focus:ring-2 focus:ring-amber/20;
   }
 }
 
@@ -182,4 +182,13 @@ html {
   .tech-marquee-row + .tech-marquee-row {
     display: none;
   }
+}
+
+section[id] { scroll-margin-top: 6rem; }
+:where(a, button, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .profile-card { animation: none; }
 }
