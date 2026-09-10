@@ -1,74 +1,183 @@
 export const profile = {
-  name: "Mouad Elbaz",
-  role: "Data Engineering & Machine Learning Developer",
-  rotatingRoles: [
-    "AI / Data Engineering Developer",
-    "Machine Learning Engineer",
-    "Full-Stack AI Developer",
-    "RAG Systems Builder",
-  ],
-  summary:
-    "I build intelligent data platforms, RAG systems, machine learning solutions, and full-stack dashboards that turn complex data into practical business value.",
-  location: "Agadir, Morocco",
-  phone: "+212 751 81 12 01",
-  email: "elbaz.ouad1249@gmail.com",
-  resumeHref: "/CV.pdf",
-  imageSrc: "/mouad.png",
+  "name": "Mouad Elbaz",
+  "role": "Data Engineer & AI Research Engineer",
+  "supportingLine": "Building data pipelines, RAG systems, and reproducible ML/LLM experiments.",
+  "summary": "I build data and AI systems combining scalable ELT pipelines, retrieval-augmented generation, machine learning, and reproducible experimentation. My recent work includes CCSR, Qwen MedQuAD fine-tuning research, and production-style data engineering systems.",
+  "location": "Agadir, Morocco",
+  "phone": "+212 751 81 12 01",
+  "email": "elbaz.ouad1249@gmail.com",
+  "resumeHref": "/CV.pdf",
+  "imageSrc": "/mouad.png",
+  "portfolio": "https://mouadelbaz.vercel.app/"
 };
 
 export const socialLinks = [
-  { label: "LinkedIn", href: "https://linkedin.com/in/mouadelbaz" },
-  { label: "GitHub", href: "https://github.com/moad-cod" },
-  { label: "X/Twitter", href: "https://x.com/MouadEl_AI" },
+  {
+    "label": "LinkedIn",
+    "href": "https://linkedin.com/in/mouadelbaz"
+  },
+  {
+    "label": "GitHub",
+    "href": "https://github.com/moad-cod"
+  },
+  {
+    "label": "X/Twitter",
+    "href": "https://x.com/MouadEl_AI"
+  }
 ];
 
-export const technologies = [
+export const technologyCategories = [
+  {
+    "name": "Data Engineering",
+    "items": [
+      "Python",
+      "SQL",
+      "PySpark",
+      "Apache Spark",
+      "Apache Airflow",
+      "Celery",
+      "dbt",
+      "Hadoop",
+      "ETL / ELT",
+      "Medallion Architecture"
+    ]
+  },
+  {
+    "name": "AI & Machine Learning",
+    "items": [
+      "RAG",
+      "QLoRA",
+      "LLM Fine-Tuning",
+      "Hybrid Retrieval",
+      "BM25",
+      "FastEmbed",
+      "PyTorch",
+      "Scikit-learn",
+      "XGBoost",
+      "Pandas",
+      "NumPy"
+    ]
+  },
+  {
+    "name": "Data & Backend",
+    "items": [
+      "PostgreSQL",
+      "MySQL",
+      "Redis",
+      "Qdrant",
+      "MinIO",
+      "FAISS",
+      "FastAPI",
+      "Spring Boot",
+      "Next.js",
+      "REST APIs"
+    ]
+  },
+  {
+    "name": "DevOps & Cloud",
+    "items": [
+      "Docker",
+      "Git",
+      "Linux",
+      "Oracle Cloud Infrastructure (OCI)"
+    ]
+  }
+];
+
+export const priorityTechnologies = [
   "Python",
-  "SQL",
-  "Java",
-  "Git",
-  "PySpark",
-  "Apache Hadoop",
   "Apache Airflow",
   "dbt",
-  "PostgreSQL",
-  "MySQL",
-  "Redis",
-  "HBase",
-  "Qdrant",
-  "FAISS",
+  "Apache Spark",
   "FastAPI",
-  "Next.js",
+  "PostgreSQL",
+  "Qdrant",
   "Docker",
-  "Linux",
-  "Scikit-learn",
   "PyTorch",
-  "OpenCV",
-  "XGBoost",
-  "Pandas",
-  "NumPy",
-];
-
-export const projectGroups = [
-  "Programming Languages",
-  "Data Engineering",
-  "Databases & Vector Search",
-  "Machine Learning & AI",
-  "Backend & APIs",
-  "DevOps / Cloud / Systems",
-  "Security",
+  "QLoRA"
 ];
 
 export const projects = [
   {
-    number: "01",
-    title: "Operational Intelligence Platform",
-    type: "Data Engineering, Machine Learning, RAG, Enterprise Dashboard",
-    status: null,
-    github: "https://github.com/moad-cod/operational-intelligence-platform",
-    imageCaption:
-      "Dashboard, analytics, ELT, RAG, and operational intelligence views.",
-    images: [
+    "number": "01",
+    "title": "CCSR — Canonical Computer Science Research",
+    "type": "AI Research Engineering Platform",
+    "status": null,
+    "github": "https://github.com/moad-cod/CCSR",
+    "imageCaption": null,
+    "images": [],
+    "description": "An open-source, local-first AI research engineering platform evolved from RAGForge. CCSR is designed around reproducible experimentation, evaluation, artifact lineage, retrieval tracing, and research-oriented AI workflows. Its current mature domain is Retrieval-Augmented Generation.",
+    "highlights": [
+      "Durable Bronze / Silver / Gold ingestion using MinIO",
+      "PostgreSQL metadata, lineage, and authoritative state",
+      "Dense + BM25 sparse hybrid retrieval with Qdrant",
+      "Configurable chunking strategies",
+      "Retrieval tracing and source inspection",
+      "SSE streaming",
+      "Redis caching and ingestion events",
+      "FastAPI control plane",
+      "Next.js frontend",
+      "Airflow and Celery ingestion orchestration",
+      "Benchmarking for latency, throughput, retries, recovery, duplicate processing, and scaling behavior"
+    ],
+    "technologies": [
+      "FastAPI",
+      "Next.js",
+      "PostgreSQL",
+      "Qdrant",
+      "MinIO",
+      "Redis",
+      "Airflow",
+      "Celery",
+      "Docker",
+      "BM25",
+      "FastEmbed"
+    ],
+    "researchDesign": [],
+    "planned": null
+  },
+  {
+    "number": "02",
+    "title": "Qwen MedQuAD — Medical LLM Fine-Tuning Research",
+    "type": "LLM Fine-Tuning & Evaluation Research",
+    "status": "Research in progress",
+    "github": "https://github.com/moad-cod/qwen-medquad-finetuning",
+    "imageCaption": null,
+    "images": [],
+    "description": "A reproducible research project studying when medical language models should rely on domain fine-tuning, retrieval, or calibrated abstention. The project uses MedQuAD and Qwen to investigate answer quality, grounding, uncertainty, and robustness.",
+    "highlights": [
+      "Built a leakage-audited MedQuAD cleaning pipeline",
+      "16,357 cleaned QA records",
+      "14,344 normalized question groups",
+      "Group-safe train / validation / test split",
+      "No detected question-group leakage",
+      "Fine-tuned Qwen3-4B using 4-bit QLoRA"
+    ],
+    "technologies": [
+      "Qwen3",
+      "QLoRA",
+      "PyTorch",
+      "Transformers",
+      "PEFT",
+      "MedQuAD",
+      "Python"
+    ],
+    "researchDesign": [
+      "Base Qwen",
+      "Base Qwen + RAG",
+      "Fine-tuned Qwen",
+      "Fine-tuned Qwen + RAG"
+    ],
+    "planned": "Planned: complete four-system evaluation, retrieval stress tests, final statistical analysis, and larger Qwen model experiments. Research topics include answer quality, evidence grounding, uncertainty, robustness, and selective answering / abstention."
+  },
+  {
+    "number": "03",
+    "title": "Operational Intelligence Platform",
+    "type": "Data Engineering & Machine Learning",
+    "status": "PFE · Professional project",
+    "github": "https://github.com/moad-cod/operational-intelligence-platform",
+    "imageCaption": "Dashboard, analytics, ELT, RAG, and operational intelligence views.",
+    "images": [
       "/Operational Intelligence Platform/1.png",
       "/Operational Intelligence Platform/2.png",
       "/Operational Intelligence Platform/3.png",
@@ -77,150 +186,136 @@ export const projects = [
       "/Operational Intelligence Platform/6.png",
       "/Operational Intelligence Platform/7.png",
       "/Operational Intelligence Platform/8.png",
-      "/Operational Intelligence Platform/9.png",
+      "/Operational Intelligence Platform/9.png"
     ],
-    description:
-      "An enterprise operational intelligence platform built during my PFE internship at the Prefecture d'Agadir Ida-Outanane. The platform consolidates ITSM, inventory, and security data into an asynchronous ELT pipeline using Medallion Architecture. It includes a multilingual RAG system for enterprise IT support, machine learning models for ticket triage and anomaly detection, and a real-time dashboard for incident tracking and KPI visualization.",
-    highlights: [
-      "Consolidated over 200,000 records from GLPI ITSM, OCS Inventory, and security logs.",
-      "Built an asynchronous ELT pipeline using Bronze, Silver, and Gold Medallion Architecture.",
-      "Orchestrated pipelines with Apache Airflow and modeled data with dbt.",
-      "Built a multilingual RAG system using BM25, dense vector search, Reciprocal Rank Fusion, Cross-Encoder reranking, Qdrant, FAISS, and Groq API.",
-      "Trained XGBoost for IT ticket triage and Isolation Forest for hardware anomaly detection.",
-      "Achieved around 86% accuracy across both ML models.",
-      "Built backend services with FastAPI and a Next.js dashboard.",
-    ],
-    technologies: [
-      "Python",
-      "Apache Airflow",
-      "dbt",
-      "PySpark",
+    "description": "A data and AI platform developed during my PFE internship to consolidate, process, analyze, and query enterprise IT operations data.",
+    "highlights": [
+      "Consolidated 200,000+ records",
+      "Sources included GLPI ITSM, OCS Inventory, and security logs",
+      "Asynchronous ELT pipeline",
+      "Medallion Architecture",
+      "Bronze / Silver / Gold analytical layers",
+      "Apache Airflow orchestration",
+      "dbt transformations",
+      "Multilingual RAG system",
+      "BM25 + dense vector retrieval",
+      "Reciprocal Rank Fusion",
+      "Cross-Encoder reranking",
       "Qdrant",
-      "FAISS",
+      "XGBoost ticket triage",
+      "Isolation Forest hardware anomaly detection",
+      "FastAPI backend",
+      "Next.js KPI dashboard"
+    ],
+    "technologies": [
+      "Airflow",
+      "dbt",
+      "Qdrant",
+      "BM25",
       "XGBoost",
-      "Scikit-learn",
+      "Isolation Forest",
       "FastAPI",
-      "Next.js",
-      "Docker",
-      "Groq API",
+      "Next.js"
     ],
+    "researchDesign": [],
+    "planned": null
   },
   {
-    number: "02",
-    title: "RAGForge",
-    type: "AI Knowledge & RAG Platform",
-    status: "Under Development",
-    github: "https://github.com/moad-cod/RAGForge",
-    imageCaption: null,
-    images: [],
-    description:
-      "RAGForge is an under-development AI Knowledge & RAG platform for automated document ingestion, hybrid search, semantic retrieval, metadata reranking, and LLM-powered contextual Q&A.",
-    highlights: [
-      "Built automated document ingestion.",
-      "Implemented hybrid keyword and semantic search.",
-      "Added metadata reranking for better contextual answers.",
-      "Used PostgreSQL for relational storage.",
-      "Used Qdrant for vector search.",
-      "Containerized the microservices cluster with Docker.",
+    "number": "04",
+    "title": "PlantGuard AI — Plant Disease Detection",
+    "type": "Computer Vision & OOD Detection",
+    "status": null,
+    "github": "https://github.com/moad-cod/Plant-Disease-Classification-using-CNN",
+    "imageCaption": "Plant disease detection interface and model preview.",
+    "images": [
+      "/PlantGuard AI/1.png"
     ],
-    technologies: ["Python", "FastAPI", "PostgreSQL", "Qdrant", "Docker", "RAG", "LLMs"],
-  },
-  {
-    number: "03",
-    title: "PlantGuard AI",
-    type: "Plant Disease Detection System",
-    status: null,
-    github: "https://github.com/moad-cod/Plant-Disease-Classification-using-CNN",
-    imageCaption: "Plant disease detection interface and model preview.",
-    images: ["/PlantGuard AI/1.png"],
-    description:
-      "An AI-powered plant disease detection system trained on the PlantVillage dataset. The project compares CNN, ResNet, and EfficientNet-B3 architectures across 38 disease categories and includes anomaly detection for out-of-distribution cases.",
-    highlights: [
-      "Trained and benchmarked CNN, ResNet, and EfficientNet-B3 models.",
-      "Used a dataset with over 70,000 plant disease images.",
-      "Classified 38 disease categories.",
-      "Achieved around 99.7% F1-score.",
-      "Added out-of-distribution detection using MSP and GOAD.",
-      "Deployed the model as an interactive Streamlit web app.",
-      "Containerized the app with Docker.",
+    "description": "A deep learning plant disease classification system combining supervised image classification with out-of-distribution detection.",
+    "highlights": [
+      "CNN, ResNet, and EfficientNet-B3 benchmarking",
+      "38 disease categories",
+      "70,000+ PlantVillage images",
+      "Approximately 99.7% F1-score",
+      "MSP out-of-distribution detection",
+      "GOAD out-of-distribution detection",
+      "Streamlit deployment",
+      "Dockerized application"
     ],
-    technologies: [
-      "Python",
+    "technologies": [
       "PyTorch",
       "TorchVision",
       "EfficientNet-B3",
       "ResNet",
       "CNN",
       "GOAD",
-      "OpenCV",
       "Streamlit",
-      "Docker",
+      "Docker"
     ],
-  },
+    "researchDesign": [],
+    "planned": null
+  }
 ];
 
 export const experiences = [
   {
-    title: "Data Engineering & Machine Learning Intern",
-    company: "Prefecture d'Agadir Ida-Outanane",
-    location: "Agadir, Morocco",
-    date: "Apr 15 - Jul 15, 2026",
-    summary:
-      "Designed and built a complete operational intelligence platform combining data engineering, machine learning, RAG, FastAPI services, and a Next.js dashboard.",
-    technologies: [
-      "Python",
-      "Apache Airflow",
+    "title": "Data Engineering & Machine Learning Intern (PFE)",
+    "company": "Prefecture d'Agadir Ida-Outanane",
+    "location": "Agadir, Morocco",
+    "date": "Apr 2026 – Jul 2026",
+    "summary": "Built ELT, RAG, and ML systems processing 200K+ enterprise records using Airflow, dbt, Qdrant, FastAPI, and Next.js.",
+    "technologies": [
+      "Medallion Architecture",
+      "Airflow",
       "dbt",
-      "PySpark",
-      "Qdrant",
-      "FAISS",
+      "RAG",
       "XGBoost",
-      "Scikit-learn",
+      "Isolation Forest",
       "FastAPI",
-      "Next.js",
-      "Docker",
-      "Groq API",
-    ],
+      "Next.js"
+    ]
   },
   {
-    title: "Developer Intern",
-    company: "Prefecture d'Agadir Ida-Outanane",
-    location: "Agadir, Morocco",
-    date: "Apr - Jun 2025",
-    summary:
-      "Built a secure enterprise attendance management system with RBAC, multi-tier authentication, dynamic session management, IP compliance analysis, audit logging, and secure local network configuration.",
-    technologies: [
-      "Backend Security",
+    "title": "Developer Intern",
+    "company": "Prefecture d'Agadir Ida-Outanane",
+    "location": "Agadir, Morocco",
+    "date": "Apr 2025 – Jun 2025",
+    "summary": "Built secure internal systems with RBAC, authentication, session management, audit logging, and network/security controls.",
+    "technologies": [
       "RBAC",
       "Authentication",
       "Audit Logging",
-      "Network Security",
-      "Linux",
-    ],
-  },
+      "Network Security"
+    ]
+  }
 ];
 
 export const education = [
   {
-    title: "Bachelor in Big Data",
-    school: "Universite Sultan Moulay Slimane, Morocco",
-    date: "2025 - 2026",
+    "title": "Bachelor in Big Data",
+    "school": "Universite Sultan Moulay Slimane · Morocco",
+    "date": "2026"
   },
   {
-    title: "Technicien Specialise en Reseaux et Systemes",
-    school: "ISTA Agadir, Morocco",
-    date: "2023 - 2025",
+    "title": "Technicien Specialise en Reseaux et Systemes",
+    "school": "ISTA Agadir · Agadir, Morocco",
+    "date": "2023 – 2025"
   },
   {
-    title: "Baccalaureat Sciences Physiques",
-    school: "Lycee Qualifiant, Morocco",
-    date: "2022 - 2023",
-  },
+    "title": "Baccalaureat Sciences Physiques",
+    "school": "Morocco",
+    "date": "2022 – 2023"
+  }
 ];
 
 export const certifications = [
   "Machine Learning Specialization — DeepLearning.AI",
   "Network Security — Cisco",
-  "Microsoft Certified: Developer & Cybersecurity Pathways — Microsoft",
-  "Introduction to Data Warehousing — IBM / Coursera",
+  "Developer & Cybersecurity Pathways — Microsoft Learn",
+  "Introduction to Data Warehousing — 365 Data Science"
 ];
+
+export const research = {
+  "description": "Interested in reproducible AI research, Retrieval-Augmented Generation, LLM fine-tuning, uncertainty estimation, selective prediction, multimodal AI, and explainable AI.",
+  "direction": "Brain Region-Aware Explainable Artificial Intelligence for EEG-Based Neurological Disorder Detection",
+  "support": "Exploring how spatial brain-region information and temporal EEG features can improve both classification performance and interpretability."
+};
