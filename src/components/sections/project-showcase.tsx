@@ -87,7 +87,7 @@ function ProjectVisual({ project }: { project: Project }) {
           <p className="max-w-56 text-sm text-muted">
             {project.imageCaption}
           </p>
-          <span className="text-7xl font-black text-amber/35">{project.number}</span>
+          <span aria-hidden="true" className="text-7xl font-black text-amber/35">{project.number}</span>
         </div>
 
         <ImageLightbox
@@ -104,9 +104,9 @@ function ProjectVisual({ project }: { project: Project }) {
   return (
     <motion.div className="project-visual group" ref={ref} style={{ y }}>
       <div className="flex items-center justify-between border-b border-border pb-4">
-        <span className="text-sm text-muted">system.preview</span>
+        <span className="text-sm text-muted">Project overview</span>
         <span className="rounded-full bg-green/40 px-3 py-1 text-xs text-cream">
-          live model
+          {project.number === "01" ? "Local-first RAG" : "Fine-tuning research"}
         </span>
       </div>
       <div className="mt-8 grid gap-4">
@@ -120,7 +120,7 @@ function ProjectVisual({ project }: { project: Project }) {
       </div>
       <div className="mt-8 flex items-end justify-between">
         <p className="max-w-48 text-sm text-muted">{project.title}</p>
-        <span className="text-7xl font-black text-amber/35">{project.number}</span>
+        <span aria-hidden="true" className="text-7xl font-black text-amber/35">{project.number}</span>
       </div>
     </motion.div>
   );
@@ -159,7 +159,7 @@ export function ProjectShowcase({ project, index }: ProjectShowcaseProps) {
       whileInView={visible}
     >
       <motion.p
-        className="text-7xl font-black text-amber/30"
+        className="text-7xl font-black text-amber"
         initial={shouldReduceMotion ? visible : { opacity: 0, y: 18 }}
         transition={{ duration: 0.7, ease, delay: 0.15 }}
         viewport={viewport}
@@ -234,6 +234,19 @@ export function ProjectShowcase({ project, index }: ProjectShowcaseProps) {
           </motion.span>
         ))}
       </motion.div>
+      <details className="mt-7 rounded-xl border border-border bg-surface/75 p-5">
+        <summary className="cursor-pointer font-semibold text-amber">View Details<span className="sr-only"> — {project.title}</span></summary>
+        <ul className="mt-5 grid list-disc gap-2 pl-5 text-sm leading-6 text-muted">
+          {project.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
+        </ul>
+        {project.researchDesign.length > 0 && (
+          <div className="mt-6 text-sm leading-6 text-muted">
+            <h4 className="font-semibold text-cream">Research design · Controlled 2×2 comparison</h4>
+            <ul className="mt-3 list-disc pl-5">{project.researchDesign.map((system) => <li key={system}>{system}</li>)}</ul>
+            <p className="mt-4">{project.planned}</p>
+          </div>
+        )}
+      </details>
       <motion.a
         className="button-secondary mt-7 gap-2"
         href={project.github}
@@ -245,7 +258,7 @@ export function ProjectShowcase({ project, index }: ProjectShowcaseProps) {
         whileInView={visible}
       >
         <GithubIcon className="size-4" />
-        View Code
+        GitHub
         <ExternalIcon className="size-4" />
       </motion.a>
     </motion.div>
