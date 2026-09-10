@@ -18,12 +18,12 @@ export function ContactSection() {
               new opportunities, creative projects, data platforms, AI systems,
               and innovative ideas.
             </p>
-            <div className="mt-8 grid gap-4 text-muted">
+            <div className="mt-8 grid gap-4 break-words text-muted">
               <p>
                 <span className="text-amber">Location:</span> {profile.location}
               </p>
               <p>
-                <span className="text-amber">Phone:</span> {profile.phone}
+                <span className="text-amber">Phone:</span> <a href={`tel:${profile.phone.replaceAll(" ", "")}`}>{profile.phone}</a>
               </p>
               <p>
                 <span className="text-amber">Email:</span>{" "}
@@ -31,6 +31,8 @@ export function ContactSection() {
                   {profile.email}
                 </a>
               </p>
+              <p><span className="text-amber">GitHub:</span>{" "}<a href="https://github.com/moad-cod" rel="noreferrer" target="_blank">moad-cod</a></p>
+              <p><span className="text-amber">Portfolio:</span>{" "}<a href={profile.portfolio}>mouadelbaz.vercel.app</a></p>
             </div>
             <a className="button-primary mt-9" href={`mailto:${profile.email}`}>
               Let&apos;s connect
