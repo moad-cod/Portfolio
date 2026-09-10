@@ -33,7 +33,28 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
+    <html lang="en" className="h-full antialiased" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: `
+          (() => {
+            const media = window.matchMedia('(prefers-color-scheme: light)');
+            let saved;
+            try { saved = localStorage.getItem('portfolio-theme'); } catch {}
+            const valid = value => value === 'light' || value === 'dark';
+            const apply = () => {
+              document.documentElement.dataset.theme = valid(saved) ? saved : (media.matches ? 'light' : 'dark');
+            };
+            apply();
+            window.addEventListener('portfolio-theme-change', () => { saved = document.documentElement.dataset.theme; });
+            media.addEventListener('change', () => {
+              apply();
+            });
+            window.addEventListener('storage', event => {
+              if (event.key === 'portfolio-theme' || event.key === null) { saved = event.newValue; apply(); }
+            });
+          })();
+        ` }} />
+      </head>
       <body className="min-h-full">
         <SiteShell>{children}</SiteShell>
       </body>
