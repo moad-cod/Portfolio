@@ -10,8 +10,10 @@ type SmoothScrollProviderProps = {
 
 export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     // Lenis belongs at the app shell level for site-wide smooth scrolling.
     const lenis = new Lenis({
+      anchors: { offset: -96 },
       lerp: 0.1,
       smoothWheel: true,
     });
