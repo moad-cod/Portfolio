@@ -72,12 +72,15 @@ export async function POST(req: Request) {
       `,
     });
 
+    if (result.error) {
+      return NextResponse.json({ error: "Failed to send email. Please try again later." }, { status: 502 });
+    }
+
     console.info("Contact form email sent:", result.data?.id ?? "no-id");
 
     return NextResponse.json({
       success: true,
       message: "Email sent successfully.",
-      data: result,
     });
   } catch (error) {
     console.error("Contact form error:", error);
