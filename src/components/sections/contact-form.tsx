@@ -118,7 +118,7 @@ export function ContactForm() {
           className={
             feedback.type === "success"
               ? "rounded-lg border border-amber/30 bg-amber/10 px-4 py-3 text-sm text-amber"
-              : "rounded-lg border border-red-400/30 bg-red-950/30 px-4 py-3 text-sm text-red-200"
+              : "rounded-lg border border-[var(--error)]/30 bg-[var(--error)]/10 px-4 py-3 text-sm text-[var(--error)]"
           }
           role="status"
         >
