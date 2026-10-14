@@ -1,5 +1,5 @@
 import { Reveal } from "@/components/animations/reveal";
-import { certifications, education } from "@/lib/portfolio-data";
+import { certifications, education, languages } from "@/lib/portfolio-data";
 
 export function EducationSection() {
   return (
@@ -35,6 +35,12 @@ export function EducationSection() {
               </div>
             ))}
           </div>
+        </Reveal>
+        <Reveal className="mt-12">
+          <h3 className="text-center text-2xl font-bold text-cream">Languages</h3>
+          <ul className="mt-6 flex flex-wrap justify-center gap-3">
+            {languages.map((language) => <li className="rounded-lg border border-border bg-surface/70 px-4 py-3 text-sm text-muted" key={language}>{language}</li>)}
+          </ul>
         </Reveal>
       </div>
     </section>
