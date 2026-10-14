@@ -286,7 +286,7 @@ export const experiences = [
     "company": "Prefecture d'Agadir Ida-Outanane",
     "location": "Agadir, Morocco",
     "date": "Apr 2025 – Jun 2025",
-    "summary": "Built secure internal systems with RBAC, authentication, session management, audit logging, and network/security controls.",
+    "summary": "Built an enterprise attendance-management system with RBAC, authentication, session management, IP compliance checks, and audit logging.",
     "technologies": [
       "RBAC",
       "Authentication",
