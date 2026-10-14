@@ -37,6 +37,10 @@ html {
     @apply text-sm font-medium text-muted transition duration-300 hover:text-amber focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber;
   }
 
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-surface focus:px-4 focus:py-3 focus:text-amber;
+  }
+
   .icon-button {
     @apply inline-flex size-10 items-center justify-center rounded-full border border-border bg-surface/80 text-muted transition duration-300 hover:border-amber/60 hover:bg-amber/10 hover:text-amber focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber;
   }
