@@ -230,7 +230,7 @@ export const projects = [
   {
     "number": "04",
     "title": "PlantGuard AI — Plant Disease Detection",
-    "type": "Computer Vision & OOD Detection",
+    "type": "AI & Machine Learning",
     "status": null,
     "github": "https://github.com/moad-cod/Plant-Disease-Classification-using-CNN",
     "imageCaption": "Plant disease detection interface and model preview.",
