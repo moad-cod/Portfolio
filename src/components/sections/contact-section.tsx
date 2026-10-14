@@ -1,6 +1,7 @@
 import { Reveal } from "@/components/animations/reveal";
 import { ContactForm } from "@/components/sections/contact-form";
 import { profile } from "@/lib/portfolio-data";
+import { CvSelector } from "@/components/ui/cv-selector";
 
 export function ContactSection() {
   return (
@@ -8,15 +9,13 @@ export function ContactSection() {
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="section-eyebrow">Contact</p>
-          <h2 className="section-title mx-auto">Get In Touch</h2>
+          <h2 className="section-title mx-auto">Let’s work together</h2>
         </Reveal>
         <div className="mt-14 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
           <Reveal className="glass-card">
-            <h3 className="text-3xl font-bold text-cream">Get In Touch</h3>
+            <h3 className="text-3xl font-bold text-cream">Start a conversation</h3>
             <p className="mt-5 leading-7 text-muted">
-              Ready to start a conversation? I&apos;m always open to discussing
-              new opportunities, creative projects, data platforms, AI systems,
-              and innovative ideas.
+              Contact me about data engineering, Python backend, or AI/ML opportunities.
             </p>
             <div className="mt-8 grid gap-4 break-words text-muted">
               <p>
@@ -32,15 +31,15 @@ export function ContactSection() {
                 </a>
               </p>
               <p><span className="text-amber">GitHub:</span>{" "}<a href="https://github.com/moad-cod" rel="noreferrer" target="_blank">moad-cod</a></p>
-              <p><span className="text-amber">Portfolio:</span>{" "}<a href={profile.portfolio}>mouadelbaz.vercel.app</a></p>
             </div>
             <a className="button-primary mt-9" href={`mailto:${profile.email}`}>
-              Let&apos;s connect
+              Email me directly
             </a>
+            <div className="mt-6" id="cv"><CvSelector compact /></div>
           </Reveal>
 
           <Reveal className="glass-card" delay={0.1}>
-            <h3 className="text-3xl font-bold text-cream">Contact Me</h3>
+            <h3 className="text-3xl font-bold text-cream">Send a message</h3>
             <ContactForm />
           </Reveal>
         </div>
