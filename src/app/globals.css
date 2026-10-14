@@ -173,6 +173,9 @@ html {
   animation: float-card 7s ease-in-out infinite;
 }
 
+.cv-selector[open] > summary span[aria-hidden] { transform: rotate(180deg); }
+.cv-selector > summary span[aria-hidden] { display: inline-block; transition: transform 160ms ease; }
+
 @media (prefers-reduced-motion: reduce) {
   .tech-marquee {
     overflow-x: auto;
