@@ -108,7 +108,7 @@ export const projects = [
   {
     "number": "01",
     "title": "CCSR — Canonical Computer Science Research",
-    "type": "AI Research Engineering Platform",
+    "type": "Data Engineering · Backend · AI",
     "status": null,
     "github": "https://github.com/moad-cod/CCSR",
     "imageCaption": null,
@@ -146,7 +146,7 @@ export const projects = [
   {
     "number": "02",
     "title": "Qwen MedQuAD — Medical LLM Fine-Tuning Research",
-    "type": "LLM Fine-Tuning & Evaluation Research",
+    "type": "AI & Machine Learning",
     "status": "Research in progress",
     "github": "https://github.com/moad-cod/qwen-medquad-finetuning",
     "imageCaption": null,
