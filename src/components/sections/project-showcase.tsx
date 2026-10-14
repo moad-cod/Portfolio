@@ -17,8 +17,20 @@ type ProjectShowcaseProps = {
 };
 
 const ease = [0.22, 1, 0.36, 1] as const;
+const projectIds: Record<string, string> = {
+  "01": "project-ccsr",
+  "02": "project-qwen-medquad",
+  "03": "project-operational-intelligence",
+  "04": "project-plantguard",
+};
+const projectSummaries: Record<string, string> = {
+  "01": "Reliable ingestion, retrieval, and research workflows",
+  "02": "Medical QA preparation and QLoRA fine-tuning",
+  "03": "Enterprise ELT, RAG, and ML dashboard",
+  "04": "Plant disease classification with OOD detection",
+};
 
-function ProjectVisual({ project }: { project: Project }) {
+function ProjectVisual({ project, displayNumber }: { project: Project; displayNumber: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const [activeImageIndex, setActiveImageIndex] = useState<number | null>(null);
   const shouldReduceMotion = useReducedMotion();
@@ -87,7 +99,7 @@ function ProjectVisual({ project }: { project: Project }) {
           <p className="max-w-56 text-sm text-muted">
             {project.imageCaption}
           </p>
-          <span aria-hidden="true" className="text-7xl font-black text-amber/35">{project.number}</span>
+          <span aria-hidden="true" className="text-7xl font-black text-amber/35">{displayNumber}</span>
         </div>
 
         <ImageLightbox
@@ -104,29 +116,29 @@ function ProjectVisual({ project }: { project: Project }) {
   return (
     <motion.div className="project-visual group" ref={ref} style={{ y }}>
       <div className="flex items-center justify-between border-b border-border pb-4">
-        <span className="text-sm text-muted">Project overview</span>
+        <span className="text-sm text-muted">System overview</span>
         <span className="rounded-full bg-green/40 px-3 py-1 text-xs text-cream">
           {project.number === "01" ? "Local-first RAG" : "Fine-tuning research"}
         </span>
       </div>
-      <div className="mt-8 grid gap-4">
-        <div className="h-3 w-2/3 rounded-full bg-amber/70 transition duration-500 group-hover:bg-orange" />
-        <div className="h-3 w-1/2 rounded-full bg-muted/40" />
-        <div className="mt-4 grid grid-cols-3 gap-3">
-          <div className="h-24 rounded-lg border border-border bg-background/65 transition duration-500 group-hover:border-amber/40" />
-          <div className="h-24 rounded-lg border border-border bg-amber/15 transition duration-500 group-hover:bg-amber/25" />
-          <div className="h-24 rounded-lg border border-border bg-green/35 transition duration-500 group-hover:border-orange/40" />
-        </div>
+      <div className="mt-8 grid gap-3 text-center text-sm font-semibold sm:grid-cols-3">
+        {(project.number === "01" ? ["Documents", "Durable ingestion", "Retrieval + tracing"] : ["MedQuAD data", "Group-safe split", "Qwen3-4B QLoRA"]).map((step, index) => (
+          <div className="rounded-lg border border-border bg-background/65 px-3 py-5 text-cream" key={step}>
+            <span className="mb-2 block text-amber">0{index + 1}</span>{step}
+          </div>
+        ))}
       </div>
+      {project.number === "02" && <p className="mt-4 text-xs text-muted">Four-system evaluation: planned</p>}
       <div className="mt-8 flex items-end justify-between">
         <p className="max-w-48 text-sm text-muted">{project.title}</p>
-        <span aria-hidden="true" className="text-7xl font-black text-amber/35">{project.number}</span>
+        <span aria-hidden="true" className="text-7xl font-black text-amber/35">{displayNumber}</span>
       </div>
     </motion.div>
   );
 }
 
 export function ProjectShowcase({ project, index }: ProjectShowcaseProps) {
+  const displayNumber = String(index + 1).padStart(2, "0");
   const shouldReduceMotion = useReducedMotion();
   const isEven = index % 2 === 0;
   const visualFrom = isEven ? -56 : 56;
@@ -147,7 +159,7 @@ export function ProjectShowcase({ project, index }: ProjectShowcaseProps) {
       viewport={viewport}
       whileInView={visible}
     >
-      <ProjectVisual project={project} />
+      <ProjectVisual project={project} displayNumber={displayNumber} />
     </motion.div>
   );
 
@@ -165,7 +177,7 @@ export function ProjectShowcase({ project, index }: ProjectShowcaseProps) {
         viewport={viewport}
         whileInView={visible}
       >
-        {project.number}
+        {displayNumber}
       </motion.p>
       <motion.p
         className="mt-2 text-sm font-medium uppercase tracking-[0.2em] text-amber"
@@ -196,6 +208,7 @@ export function ProjectShowcase({ project, index }: ProjectShowcaseProps) {
       >
         {project.title}
       </motion.h3>
+      <p className="mt-3 text-lg font-medium text-amber">{projectSummaries[project.number]}</p>
       <motion.div
         className="glass-card mt-7"
         initial={shouldReduceMotion ? visible : { opacity: 0, y: 22 }}
@@ -205,7 +218,7 @@ export function ProjectShowcase({ project, index }: ProjectShowcaseProps) {
       >
         <p className="leading-7 text-muted">{project.description}</p>
         <ul className="mt-6 grid gap-3 text-sm leading-6 text-muted">
-          {project.highlights.slice(0, 5).map((highlight) => (
+          {project.highlights.slice(0, 3).map((highlight) => (
             <li className="flex gap-3" key={highlight}>
               <span className="mt-2 size-1.5 shrink-0 rounded-full bg-amber" />
               <span>{highlight}</span>
@@ -221,7 +234,7 @@ export function ProjectShowcase({ project, index }: ProjectShowcaseProps) {
         variants={{ hidden: {}, show: {} }}
         whileInView="show"
       >
-        {project.technologies.map((technology) => (
+        {project.technologies.slice(0, 5).map((technology) => (
           <motion.span
             key={technology}
             variants={{
@@ -235,10 +248,11 @@ export function ProjectShowcase({ project, index }: ProjectShowcaseProps) {
         ))}
       </motion.div>
       <details className="mt-7 rounded-xl border border-border bg-surface/75 p-5">
-        <summary className="cursor-pointer font-semibold text-amber">View Details<span className="sr-only"> — {project.title}</span></summary>
+        <summary className="cursor-pointer font-semibold text-amber">Implementation details<span className="sr-only"> — {project.title}</span></summary>
         <ul className="mt-5 grid list-disc gap-2 pl-5 text-sm leading-6 text-muted">
-          {project.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
+          {project.highlights.slice(3).map((highlight) => <li key={highlight}>{highlight}</li>)}
         </ul>
+        <div className="mt-5 flex flex-wrap gap-2">{project.technologies.slice(5).map((technology) => <Badge key={technology}>{technology}</Badge>)}</div>
         {project.researchDesign.length > 0 && (
           <div className="mt-6 text-sm leading-6 text-muted">
             <h4 className="font-semibold text-cream">Research design · Controlled 2×2 comparison</h4>
@@ -265,18 +279,9 @@ export function ProjectShowcase({ project, index }: ProjectShowcaseProps) {
   );
 
   return (
-    <article className="grid gap-9 lg:grid-cols-2 lg:items-center">
-      {isEven ? (
-        <>
-          {visual}
-          {content}
-        </>
-      ) : (
-        <>
-          <div className="lg:order-2">{visual}</div>
-          <div>{content}</div>
-        </>
-      )}
+    <article id={projectIds[project.number]} className="grid scroll-mt-28 gap-9 lg:grid-cols-2 lg:items-center">
+      <div className={isEven ? "lg:order-2" : undefined}>{content}</div>
+      <div className={isEven ? "lg:order-1" : undefined}>{visual}</div>
     </article>
   );
 }
