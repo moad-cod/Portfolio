@@ -180,7 +180,7 @@ export const projects = [
   {
     "number": "03",
     "title": "Operational Intelligence Platform",
-    "type": "Data Engineering & Machine Learning",
+    "type": "Data Engineering · Backend · AI",
     "status": "PFE · Professional project",
     "github": "https://github.com/moad-cod/operational-intelligence-platform",
     "imageCaption": "Dashboard, analytics, ELT, RAG, and operational intelligence views.",
