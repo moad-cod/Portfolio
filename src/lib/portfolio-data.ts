@@ -155,10 +155,10 @@ export const projects = [
     "highlights": [
       "Built a leakage-audited MedQuAD cleaning pipeline",
       "16,357 cleaned QA records",
+      "Fine-tuned Qwen3-4B using 4-bit QLoRA",
       "14,344 normalized question groups",
       "Group-safe train / validation / test split",
-      "No detected question-group leakage",
-      "Fine-tuned Qwen3-4B using 4-bit QLoRA"
+      "No detected question-group leakage"
     ],
     "technologies": [
       "Qwen3",
