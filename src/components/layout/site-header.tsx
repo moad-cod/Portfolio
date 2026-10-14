@@ -14,12 +14,9 @@ import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { Logo } from "@/components/ui/logo";
 
 const navItems = [
-  { label: "Home", href: "#home" },
-  { label: "Technologies", href: "#technologies" },
   { label: "Projects", href: "#projects" },
-  { label: "Research", href: "#research" },
   { label: "Experience", href: "#experience" },
-  { label: "Education", href: "#education" },
+  { label: "Skills", href: "#technologies" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -33,6 +30,7 @@ export function SiteHeader() {
         event.currentTarget.querySelector<HTMLButtonElement>('[aria-controls="mobile-navigation"]')?.focus();
       }
     }} className="fixed inset-x-0 top-0 z-50 border-b border-border/70 bg-background/80 backdrop-blur-xl">
+      <a className="skip-link" href="#main-content">Skip to main content</a>
       <nav
         aria-label="Primary navigation"
         className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6"
@@ -54,6 +52,7 @@ export function SiteHeader() {
         </div>
 
         <div className="hidden items-center gap-3 xl:flex">
+          <a className="nav-link" href="#cv">Choose a CV</a>
           <ThemeToggle />
           <a
             aria-label="LinkedIn profile"
@@ -110,6 +109,7 @@ export function SiteHeader() {
                 {item.label}
               </a>
             ))}
+            <a className="nav-link py-2" href="#cv" onClick={() => setIsOpen(false)}>Choose a CV</a>
             <div className="flex gap-3 pt-2">
               <a aria-label="LinkedIn profile" className="icon-button" href={socialLinks[0].href} rel="noreferrer" target="_blank">
                 <LinkedinIcon className="size-4" />
