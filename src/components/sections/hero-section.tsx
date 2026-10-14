@@ -2,11 +2,12 @@ import Image from "next/image";
 
 import { Reveal } from "@/components/animations/reveal";
 import { profile } from "@/lib/portfolio-data";
+import { CvSelector } from "@/components/ui/cv-selector";
 
 export function HeroSection() {
   return (
     <section
-      className="relative isolate min-h-screen overflow-hidden px-6 pb-24 pt-32 md:pt-40"
+      className="relative isolate overflow-x-clip px-6 pb-12 pt-28 md:pb-20 md:pt-36"
       id="home"
     >
       <div className="absolute left-1/2 top-16 -z-10 size-[36rem] -translate-x-1/2 rounded-full bg-amber/20 blur-[150px]" />
@@ -15,7 +16,7 @@ export function HeroSection() {
         <div className="text-center lg:text-left">
           <Reveal delay={0.02}>
             <p className="mx-auto mb-5 max-w-fit text-xs font-semibold uppercase tracking-[0.18em] text-amber sm:text-sm lg:mx-0">
-              DATA PIPELINES · AI SYSTEMS · RESEARCH
+              DATA ENGINEERING · PYTHON BACKEND · AI/ML
             </p>
           </Reveal>
           <Reveal delay={0.12}>
@@ -39,19 +40,22 @@ export function HeroSection() {
             </p>
           </Reveal>
           <Reveal delay={0.5}>
-            <div className="mt-10 flex flex-wrap justify-center gap-4 lg:justify-start">
+            <div className="mt-9 flex flex-wrap justify-center gap-4 lg:justify-start">
               <a className="button-primary" href="#projects">
-                View Projects
+                Explore projects
               </a>
-              <a className="button-secondary" href={profile.resumeHref} download="Mouad-Elbaz-CV.pdf">
-                Download CV
-              </a>
+              <CvSelector />
+            </div>
+            <div aria-label="Explore by role" className="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm lg:justify-start">
+              <a className="text-amber underline underline-offset-4" href="#project-operational-intelligence">Data Engineering</a>
+              <a className="text-amber underline underline-offset-4" href="#project-ccsr">Python Backend</a>
+              <a className="text-amber underline underline-offset-4" href="#project-qwen-medquad">AI &amp; ML</a>
             </div>
           </Reveal>
         </div>
 
         <Reveal className="lg:justify-self-end" delay={0.15}>
-          <div className="profile-card group relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-[2rem] border border-border bg-surface p-3 shadow-amber">
+          <div className="profile-card group relative mx-auto aspect-[4/5] w-full max-w-xs overflow-hidden rounded-[2rem] border border-border bg-surface p-3 shadow-amber lg:max-w-md">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_12%,rgba(225,139,41,0.28),transparent_38%),linear-gradient(145deg,rgba(51,62,50,0.38),transparent_45%)]" />
             <Image
               alt="Portrait of Mouad Elbaz"
