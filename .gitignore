@@ -51,7 +51,7 @@ next-env.d.ts
 # Local graphify knowledge graph, tooling, and agent instructions
 graphify-out/
 .graphify*
-.codex/skills/graphify/
-.codex/hooks.json
+/.codex/
+/.agents/
 /AGENTS.md
 /CLAUDE.md
