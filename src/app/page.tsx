@@ -6,15 +6,17 @@ import { ProjectsSection } from "@/components/sections/projects-section";
 import { TechnologiesSection } from "@/components/sections/technologies-section";
 
 import { ResearchSection } from "@/components/sections/research-section";
+import { EvidenceSection } from "@/components/sections/evidence-section";
 
 export default function Home() {
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       <HeroSection />
-      <TechnologiesSection />
+      <EvidenceSection />
       <ProjectsSection />
-      <ResearchSection />
       <ExperienceSection />
+      <TechnologiesSection />
+      <ResearchSection />
       <EducationSection />
       <ContactSection />
     </main>
