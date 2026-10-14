@@ -1,15 +1,22 @@
 export const profile = {
   "name": "Mouad Elbaz",
-  "role": "Data Engineer & AI Research Engineer",
-  "supportingLine": "Building data pipelines, RAG systems, and reproducible ML/LLM experiments.",
-  "summary": "I build data and AI systems combining scalable ELT pipelines, retrieval-augmented generation, machine learning, and reproducible experimentation. My recent work includes CCSR, Qwen MedQuAD fine-tuning research, and production-style data engineering systems.",
+  "role": "Junior Engineer · Data, Python Backend & AI/ML",
+  "supportingLine": "I build data pipelines, Python services, and reproducible machine-learning systems.",
+  "summary": "From enterprise ELT and FastAPI services to retrieval systems and model training, I turn complex data into useful, testable applications.",
   "location": "Agadir, Morocco",
   "phone": "+212 751 81 12 01",
   "email": "elbaz.ouad1249@gmail.com",
-  "resumeHref": "/CV.pdf",
   "imageSrc": "/mouad.png",
   "portfolio": "https://mouadelbaz.vercel.app/"
 };
+
+export const resumes = [
+  { label: "Data Engineering", href: "/Mouad_Elbaz_resume_CV1_Eng.pdf", filename: "Mouad-Elbaz-Data-Engineering-CV.pdf" },
+  { label: "Python Backend", href: "/Mouad_Elbaz_resume_CV2_Python.pdf", filename: "Mouad-Elbaz-Python-Backend-CV.pdf" },
+  { label: "AI & Machine Learning", href: "/Mouad_Elbaz_resume_CV3_AI.pdf", filename: "Mouad-Elbaz-AI-ML-CV.pdf" },
+];
+
+export const languages = ["Arabic — Native", "French — Intermediate", "English — Advanced"];
 
 export const socialLinks = [
   {
