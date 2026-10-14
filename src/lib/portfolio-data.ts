@@ -269,7 +269,7 @@ export const experiences = [
     "company": "Prefecture d'Agadir Ida-Outanane",
     "location": "Agadir, Morocco",
     "date": "Apr 2026 – Jul 2026",
-    "summary": "Built ELT, RAG, and ML systems processing 200K+ enterprise records using Airflow, dbt, Qdrant, FastAPI, and Next.js.",
+    "summary": "Integrated 200,000+ enterprise records with asynchronous ELT, Airflow, and dbt; built multilingual retrieval and ML services in FastAPI for a Next.js dashboard.",
     "technologies": [
       "Medallion Architecture",
       "Airflow",
