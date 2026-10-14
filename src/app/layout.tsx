@@ -5,21 +5,21 @@ import { SiteShell } from "@/components/layout/site-shell";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Mouad Elbaz | Data Engineer & AI Research Engineer",
+  title: "Mouad Elbaz | Data, Python Backend & AI/ML",
   description:
-    "Portfolio of Mouad Elbaz, a Data Engineer and AI Research Engineer working on scalable data pipelines, RAG systems, LLM fine-tuning, machine learning, and reproducible AI research.",
+    "Portfolio of Mouad Elbaz, a junior engineer building data pipelines, Python backend services, and AI/ML systems.",
   metadataBase: new URL("https://mouadelbaz.vercel.app"),
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Mouad Elbaz | Data Engineer & AI Research Engineer",
-    description: "Building data pipelines, RAG systems, and reproducible ML/LLM experiments.",
+    title: "Mouad Elbaz | Data, Python Backend & AI/ML",
+    description: "Building data pipelines, Python services, and reproducible AI/ML systems.",
     url: "/",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "Mouad Elbaz | Data Engineer & AI Research Engineer",
-    description: "Building data pipelines, RAG systems, and reproducible ML/LLM experiments.",
+    title: "Mouad Elbaz | Data, Python Backend & AI/ML",
+    description: "Building data pipelines, Python services, and reproducible AI/ML systems.",
   },
   icons: {
     icon: "/icon.svg",
