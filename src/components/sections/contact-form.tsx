@@ -69,8 +69,8 @@ export function ContactForm() {
   }
 
   return (
-    <form className="mt-7 grid gap-4" onSubmit={handleSubmit}>
-      <label className="sr-only" htmlFor="name">
+    <form aria-busy={isSending} className="mt-7 grid gap-4" onSubmit={handleSubmit}>
+      <label className="text-sm font-semibold text-cream" htmlFor="name">
         Your name
       </label>
       <input
@@ -85,7 +85,7 @@ export function ContactForm() {
         type="text"
         value={form.name}
       />
-      <label className="sr-only" htmlFor="email">
+      <label className="text-sm font-semibold text-cream" htmlFor="email">
         Your email
       </label>
       <input
@@ -100,7 +100,7 @@ export function ContactForm() {
         type="email"
         value={form.email}
       />
-      <label className="sr-only" htmlFor="message">
+      <label className="text-sm font-semibold text-cream" htmlFor="message">
         Your message
       </label>
       <textarea
@@ -125,12 +125,13 @@ export function ContactForm() {
           {feedback.message}
         </p>
       ) : null}
+      {feedback?.type === "error" ? <a className="text-sm text-amber underline underline-offset-4" href="mailto:elbaz.ouad1249@gmail.com">Use email instead</a> : null}
       <button
         className="button-primary justify-center disabled:cursor-not-allowed disabled:opacity-60"
         disabled={isSending}
         type="submit"
       >
-        {isSending ? "Sending..." : "Send"}
+        {isSending ? "Sending..." : "Send message"}
       </button>
     </form>
   );
